@@ -1,0 +1,8 @@
+{
+  "listening_mode": "wake_word",
+  "push_to_talk_shortcut": "Ctrl+Shift+Space",
+  "stt_silence_timeout_ms": 1200,
+  "microphone": "default",
+  "tts_volume": 80,
+  "debug_mode": false
+}

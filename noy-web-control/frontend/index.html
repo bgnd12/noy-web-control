@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Noy — Remote</title>
+<link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+
+<main class="remote">
+
+  <header class="remote__brand">
+    <span class="wordmark">Noy</span>
+    <span class="conn-dot" id="wsDot" title="Koneksi Web Control"></span>
+  </header>
+
+  <section class="orb-stage">
+    <div class="orb" id="orb" data-state="stopped">
+      <div class="orb__core"></div>
+      <div class="orb__ring"></div>
+    </div>
+    <p class="orb-state" id="stateLabel">Stopped</p>
+    <p class="orb-sub" id="stateSub">Noy belum berjalan</p>
+  </section>
+
+  <section class="controls">
+    <button class="btn btn--primary" id="startBtn">
+      <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+      Start Noy
+    </button>
+    <button class="btn btn--ghost" id="stopBtn">
+      <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M6 6h12v12H6z"/></svg>
+      Stop Noy
+    </button>
+  </section>
+
+  <section class="mode-switch">
+    <button class="mode-pill mode-pill--active" data-mode="wake_word">Wake Word</button>
+    <button class="mode-pill" data-mode="push_to_talk">Push-to-Talk</button>
+  </section>
+
+  <section class="rows">
+    <div class="row">
+      <span class="row__label">Microphone</span>
+      <span class="row__value" id="rowMic"><i class="dot dot--idle"></i>Menunggu</span>
+    </div>
+    <div class="row">
+      <span class="row__label">LLM</span>
+      <span class="row__value" id="rowLlm"><i class="dot dot--idle"></i>Menunggu</span>
+    </div>
+    <div class="row">
+      <span class="row__label">Voice output</span>
+      <span class="row__value" id="rowTts"><i class="dot dot--idle"></i>Menunggu</span>
+    </div>
+  </section>
+
+  <section class="activity">
+    <div class="activity__head">Activity</div>
+    <ul class="activity__list" id="activityList">
+      <li class="activity__empty">Belum ada aktivitas</li>
+    </ul>
+  </section>
+
+  <section class="settings" id="settingsPanel">
+    <button class="settings__toggle" id="settingsToggle">
+      <span>Settings</span>
+      <svg viewBox="0 0 24 24" width="14" height="14" class="chev"><path fill="currentColor" d="M7 10l5 5 5-5z"/></svg>
+    </button>
+    <div class="settings__body" id="settingsBody">
+      <label class="field">
+        <span>Push-to-Talk shortcut</span>
+        <input type="text" id="pttShortcut" placeholder="Ctrl+Shift+Space" />
+      </label>
+      <label class="field">
+        <span>STT silence timeout (ms)</span>
+        <input type="number" id="silenceTimeout" min="200" step="100" />
+      </label>
+      <label class="field">
+        <span>Microphone</span>
+        <select id="micSelect"><option value="default">Default</option></select>
+      </label>
+      <label class="field field--slider">
+        <span>Volume TTS</span>
+        <input type="range" id="ttsVolume" min="0" max="100" />
+        <span class="field__value" id="ttsVolumeValue">80</span>
+      </label>
+      <label class="field field--check">
+        <input type="checkbox" id="debugMode" />
+        <span>Debug mode</span>
+      </label>
+      <button class="btn btn--save" id="saveSettings">Simpan pengaturan</button>
+      <p class="settings__note" id="settingsSavedNote"></p>
+    </div>
+  </section>
+
+</main>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

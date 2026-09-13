@@ -1,0 +1,9 @@
+fastapi>=0.110
+uvicorn[standard]>=0.29
+python-dotenv>=1.0
+pydantic>=2.6
+
+# Opsional: hanya dipakai untuk /api/microphones (daftar mic).
+# Jika instalasi gagal (butuh PortAudio di sistem), boleh dihapus baris ini —
+# endpoint akan tetap jalan dan mengembalikan available:false.
+sounddevice>=0.4.6
