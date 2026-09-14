@@ -7,3 +7,8 @@ pydantic>=2.6
 # Jika instalasi gagal (butuh PortAudio di sistem), boleh dihapus baris ini —
 # endpoint akan tetap jalan dan mengembalikan available:false.
 sounddevice>=0.4.6
+
+# Deteksi proses Noy eksternal (agar START tidak membuat Noy kedua kalau
+# Noy sudah dijalankan manual di luar Web Control). Tanpa psutil, guard
+# hanya mengandalkan proses yang dikelola Web Control sendiri.
+psutil>=5.9
